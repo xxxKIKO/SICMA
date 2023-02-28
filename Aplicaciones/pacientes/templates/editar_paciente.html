@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Editar Paciente</h1>
+    <form action="/edicion_paciente/" method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="id_paciente">Id Paciente: </label>
+            <label for="">{{ paciente.id_paciente }}</label>
+            <input type="hidden" id="id_paciente" name="id_paciente" value="{{ paciente.id_paciente }}">
+        </div>
+            
+       
+        <div>
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" value="{{ paciente.nombre }}">
+        </div>
+        <div>
+            <label for="apellido1">Apellido Paterno: </label>
+            <input type="text" name="apellido1" value="{{ paciente.apellido1 }}">
+        </div>
+        <div>
+            <label for="apellido2">Apellido Materno: </label>
+            <input type="text" name="apellido2" value="{{ paciente.apellido2 }}">
+        </div>
+        <div>
+            <label for="fecha_nac">Fecha de Nacimiento: </label>
+            <input type="text" name="fecha_nac" value="{{ paciente.fecha_nac }}">
+        </div>
+        <div>
+            <label for="fecha_reg">Fecha de Registro: </label>
+            <input type="text" name="fecha_reg" value="{{ paciente.fecha_reg }}">
+        </div>
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock %}
