@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Agregar Paciente</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="id_paciente">ID Paciente: </label>
+            <label for="">{{ paciente.id_paciente }}</label>
+            <input type="hidden" name="id_paciente" value="{{ id.paciente }}" disabled>
+        </div>
+            
+        
+        <div>
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" value="{{ paciente.nombre }} ">
+        </div>
+        <div>
+            <label for="apellido1">Apellido Paterno: </label>
+            <input type="text" name="apellido1" value="{% if edit_mode %}{{ paciente.apellido1 }}{% endif %}">
+        </div>
+        <div>
+            <label for="apellido2">Apellido Materno: </label>
+            <input type="text" name="apellido2" value="{% if edit_mode %}{{ paciente.apellido2 }}{% endif %}">
+        </div>
+        <div>
+            <label for="fecha_nac">Fecha de Nacimiento: </label>
+            <input type="date" name="fecha_nac" value="{% if edit_mode %}{{ paciente.fecha_nac }}{% endif %}">
+        </div>
+        <div>
+            <label for="fecha_reg">Fecha de Registro: </label>
+            <input type="date" name="fecha_reg" value="{% if edit_mode %}{{ paciente.fecha_reg }}{% endif %}">
+        </div>
+        <button type="submit">Agregar</button>
+    </form>   
+    </form>
+
+{% endblock %}
